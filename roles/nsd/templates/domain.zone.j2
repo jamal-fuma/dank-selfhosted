@@ -32,6 +32,12 @@ znc IN A {{ ip }}
 znc IN AAAA {{ ip6 }}
 vpn IN A {{ ip }}
 vpn IN AAAA {{ ip6 }}
+ttrss IN A {{ ip }}
+ttrss IN AAAA {{ ip6 }}
+matrix IN A {{ ip }}
+matrix IN AAAA {{ ip6 }}
+turn IN A {{ ip }}
+turn IN AAAA {{ ip6 }}
 
 {% for name, record in (a_records | default({})).iteritems() %}
 {{ name }} IN A {{ record.ip }}

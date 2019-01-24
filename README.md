@@ -3,9 +3,9 @@
 <img src="https://i.imgur.com/A46hkpd.gif" width="300">
 
 Hi! This is my ansible playbook for self-hosting your own email, web hosting, XMPP chat,
-and DNS records using [OpenBSD](https://www.openbsd.org/). I use it to host everything on
-[c0ffee.net](https://www.c0ffee.net), but you can easily adapt it for your own domain by
-setting a few variables in `vars.yml`.
+Matrix Homeserver, Tiny Tiny RSS, and and DNS records using [OpenBSD](https://www.openbsd.org/).
+I use it to host everything on [c0ffee.net](https://www.c0ffee.net), but you can easily adapt 
+it for your own domain by setting a few variables in `vars.yml`.
 
 ## TLDR
 
@@ -34,6 +34,7 @@ setting a few variables in `vars.yml`.
     - [spamd(8)](https://man.openbsd.org/spamd) for spam filtering
     - [nsd(8)](https://man.openbsd.org/nsd.8) for authoritative DNS server
     - [httpd(8)](https://man.openbsd.org/httpd.8) for web server
+    - [relayd(8)](https://man.openbsd.org/relayd.8) for TLS reverse proxy
     - basic [passwd(5)](https://man.openbsd.org/passwd.5) authentication for all services (maybe I should look into [ldapd(8)](https://man.openbsd.org/ldapd.8)?)
 
 - Of course, some packages from the ports tree will be necessary:
@@ -42,6 +43,10 @@ setting a few variables in `vars.yml`.
     - [ldns-utils](https://www.nlnetlabs.nl/projects/ldns/about/) for DNSSEC zone signing
     - [dovecot](https://dovecot.org/) for IMAP access
     - [dkimproxy](http://dkimproxy.sourceforge.net/) for [DKIM](http://www.dkim.org/) signing of outgoing mail
+
+- And some third-party projects not currently in packages:
+    - [synapse](https://github.com/matrix-org/synapse) for running your own [Matrix](https://matrix.org) homeserver
+    - [Tiny Tiny RSS](https://tt-rss.org) as a personal RSS aggregator
 
 - Encryption Everywhere:
     - Automated DNSSEC with `nsd` and cron tasks using `ldns-signzone` for daily zone re-signing and slave `NOTIFYs`

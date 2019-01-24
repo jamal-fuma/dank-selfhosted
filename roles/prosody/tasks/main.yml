@@ -73,4 +73,3 @@
       doas -u _prosody /usr/local/sbin/prosodyctl reload
     dest: /etc/acme/hooks.d/prosody.sh
     mode: 0555
-
